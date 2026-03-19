@@ -37,15 +37,15 @@ namespace BankAccountNS
         {
             if (amount > m_balance)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Сумма больше имеющейся на счету");
             }
 
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Сумма меньше нуля");
             }
 
-            m_balance += amount;
+            m_balance -= amount;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace BankAccountNS
         {
             if (amount < 0)
             {
-                throw new ArgumentOutOfRangeException("amount");
+                throw new ArgumentOutOfRangeException("amount", amount, "Сумма меньше нуля");
             }
 
             m_balance += amount;
