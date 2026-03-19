@@ -28,6 +28,11 @@ namespace BankAccountNS
             get { return m_balance; }
         }
 
+        /// <summary>
+        /// Снимает деньги со счёту
+        /// </summary>
+        /// <param name="amount">Сумма, которую планируется снять</param>
+        /// <exception cref="ArgumentOutOfRangeException">Недопустимая сумма (меньше нуля либо больше имеющейся)</exception>
         public void Debit(double amount)
         {
             if (amount > m_balance)
@@ -43,6 +48,11 @@ namespace BankAccountNS
             m_balance += amount;
         }
 
+        /// <summary>
+        /// Кладёт деньги на счёт.
+        /// </summary>
+        /// <param name="amount">Сумма, которую планируется положить</param>
+        /// <exception cref="ArgumentOutOfRangeException">Недопустимая сумма (меньше нуля)</exception>
         public void Credit(double amount)
         {
             if (amount < 0)
